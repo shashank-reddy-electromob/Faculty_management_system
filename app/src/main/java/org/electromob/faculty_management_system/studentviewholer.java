@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class studentviewholer extends RecyclerView.ViewHolder {
 
-    public TextView name123,room_number123,mon1,tue1,wed1,thur1,fri1,sat1,spl1,resume123;
+    public TextView name123,room_number123,mon1,tue1,wed1,thur1,fri1,sat1,spl1,resume123,years,ares,papers;
     public ImageView faculty_profile_pic;
 
     public studentviewholer(@NonNull View itemView) {
@@ -28,6 +28,8 @@ public class studentviewholer extends RecyclerView.ViewHolder {
         sat1 = itemView.findViewById(R.id.cardview_saturday_time);
         resume123 = itemView.findViewById(R.id.cardview_resume);
         faculty_profile_pic = itemView.findViewById(R.id.faculty_imageview);
-
+        years = itemView.findViewById(R.id.yearsofexperience);
+        ares = itemView.findViewById(R.id.area_of_interest);
+        papers = itemView.findViewById(R.id.descriptionofpapers);
     }
 }

@@ -75,9 +75,12 @@ public class student_home extends AppCompatActivity {
                 studentviewholer.fri1.setText(faculty_info.getFri1());
                 studentviewholer.sat1.setText(faculty_info.getSat1());
                 studentviewholer.resume123.setText(faculty_info.getResume2());
+                studentviewholer.years.setText(faculty_info.getId1());
+                studentviewholer.ares.setText(faculty_info.getAreof12());
+                studentviewholer.papers.setText(faculty_info.getDes12());
 
                 final StorageReference storageReference = firebaseStorage.getReference();
-                storageReference.child(firebaseAuth.getUid()).child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                storageReference.child(faculty_info.getName1()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
                         Picasso.get().load(uri).into(studentviewholer.faculty_profile_pic);

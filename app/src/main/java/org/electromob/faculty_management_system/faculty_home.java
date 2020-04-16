@@ -29,7 +29,7 @@ import com.squareup.picasso.Picasso;
 
 public class faculty_home extends AppCompatActivity {
 
-    EditText Name,Id,room_number,monday,tuesday,wednesday,thursday,friday,saturday,notes,resume1;
+    EditText Name,Id,room_number,monday,tuesday,wednesday,thursday,friday,saturday,notes,resume1,areaofintrest,despapers;
     Button update;
     ImageView logo;
     FirebaseDatabase firebaseDatabase;
@@ -37,47 +37,13 @@ public class faculty_home extends AppCompatActivity {
     private static final int PICK_IMAGE = 123;
     FirebaseAuth firebaseAuth;
     DatabaseReference reference;
-    String name12,id,room_no,mon,tue,wed,thur,fri,sat,spl,resume;
+    String name12,id,room_no,mon,tue,wed,thur,fri,sat,spl,resume,areaof,despap;
     ImageView image;
     private Uri imagepath;
     private StorageReference mstorageref;
     private ProgressDialog progressDialog;
     private StorageTask muploadtask;
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
-            imagepath = data.getData();
-
-            Picasso.get().load(imagepath).into(image);
-
-            if (imagepath != null ){
-                progressDialog.setMessage("Relax a bit we are uploading your pic ...");
-                progressDialog.show();
-                StorageReference fileReference = mstorageref.child(firebaseAuth.getUid()).child("Profile Pic");
-
-                muploadtask = fileReference.putFile(imagepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"Process success",Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"Process failed",Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }else{
-                Toast.makeText(getApplicationContext(),"IMAGE NOT SELECTED: ",Toast.LENGTH_SHORT).show();
-            }
-
-        }
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +53,8 @@ public class faculty_home extends AppCompatActivity {
         Name = findViewById(R.id.faculty_name);
         logo = findViewById(R.id.navlogo);
         Id = findViewById(R.id.faculty_id);
+        areaofintrest = findViewById(R.id.areasofintrest);
+        despapers = findViewById(R.id.faculty_papers);
         room_number = findViewById(R.id.faculty_room_number);
         firebaseStorage = FirebaseStorage.getInstance();
         mstorageref = FirebaseStorage.getInstance().getReference();
@@ -137,9 +105,11 @@ public class faculty_home extends AppCompatActivity {
             }
         });
 
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 name12 = Name.getText().toString();
                 id = Id.getText().toString().trim();
@@ -152,13 +122,37 @@ public class faculty_home extends AppCompatActivity {
                 sat = saturday.getText().toString().trim();
                 spl = notes.getText().toString().trim();
                 resume = resume1.getText().toString().trim();
+                areaof = areaofintrest.getText().toString().trim();
+                despap = despapers.getText().toString().trim();
+
+                if (imagepath != null ){
+                    progressDialog.setMessage("Relax a bit we are uploading your pic ...");
+                    progressDialog.show();
+                    StorageReference fileReference = mstorageref.child(name12);
+
+                    muploadtask = fileReference.putFile(imagepath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(),"Process success",Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(),"Process failed",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(),"IMAGE OR NAME SELECTED: ",Toast.LENGTH_SHORT).show();
+                }
 
                 //Toast.makeText(getApplicationContext(),name12,Toast.LENGTH_SHORT).show();
 
                 reference = firebaseDatabase.getReference("Data").child(name12);
                 reference.keepSynced(true);
                 faculty_info faculty_info;
-                faculty_info = new faculty_info(name12,id,room_no,mon,tue,wed,thur,fri,sat,spl,resume);
+                faculty_info = new faculty_info(name12,id,room_no,mon,tue,wed,thur,fri,sat,spl,resume,areaof,despap);
                 reference.setValue(faculty_info);
 
                 Toast.makeText(getApplicationContext(),"Upload Sucess",Toast.LENGTH_SHORT).show();
@@ -167,4 +161,18 @@ public class faculty_home extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+
+            imagepath = data.getData();
+
+            Picasso.get().load(imagepath).into(image);
+
+        }
+
+    }
+
 }

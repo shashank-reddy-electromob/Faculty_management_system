@@ -262,7 +262,43 @@
             android:layout_width="match_parent"
             android:id="@+id/cardview_resume"
             android:layout_height="wrap_content"
-            android:text="Designation"
+            android:text="Designation and qualification"
+            android:textColor="#000"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/area_of_interest"
+            android:layout_height="wrap_content"
+            android:text="Areas of interest"
+            android:textColor="#000"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/descriptionofpapers"
+            android:layout_height="wrap_content"
+            android:text="No Papers written"
+            android:textColor="#000"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/yearsofexperience"
+            android:layout_height="wrap_content"
+            android:text="0 years"
             android:textColor="#000"
             android:textSize="12sp"
             android:textStyle="italic"

@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "804881517622",
-    "firebase_url": "https://facultymanagementsystem-aacad.firebaseio.com",
-    "project_id": "facultymanagementsystem-aacad",
-    "storage_bucket": "facultymanagementsystem-aacad.appspot.com"
+    "project_number": "705792442036",
+    "firebase_url": "https://faculty-management-syste-7534e.firebaseio.com",
+    "project_id": "faculty-management-syste-7534e",
+    "storage_bucket": "faculty-management-syste-7534e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:804881517622:android:f641b35bf30493bb899c97",
+        "mobilesdk_app_id": "1:705792442036:android:fceba52f865ed24ab0a1e1",
         "android_client_info": {
           "package_name": "org.electromob.faculty_management_system"
         }
       },
       "oauth_client": [
         {
-          "client_id": "804881517622-5eru1dkhf78nn1ufebltbfgfm5gkgu9i.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "org.electromob.faculty_management_system",
-            "certificate_hash": "7364858aa871459da8518e296d5da0a94cdc59b0"
-          }
-        },
-        {
-          "client_id": "804881517622-vop7p1rc9khurnv6fdrap0ecta704ddk.apps.googleusercontent.com",
+          "client_id": "705792442036-6efhnsj3eo9o9u0kgv0om06uf9h5qtqh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARMmdAc56O8S3h43WbuDcG4RSfRsi96XU"
+          "current_key": "AIzaSyAveE1iO-6lQjCYN8cq0ztIzK4O-GhxYyI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "804881517622-vop7p1rc9khurnv6fdrap0ecta704ddk.apps.googleusercontent.com",
+              "client_id": "705792442036-6efhnsj3eo9o9u0kgv0om06uf9h5qtqh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

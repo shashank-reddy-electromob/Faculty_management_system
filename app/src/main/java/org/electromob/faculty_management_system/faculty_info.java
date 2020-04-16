@@ -2,12 +2,12 @@ package org.electromob.faculty_management_system;
 
 public class faculty_info {
 
-    public String name1,id1,room_no1,mon1,tue1,wed1,thur1,fri1,sat1,spl1,resume2;
+    public String name1,id1,room_no1,mon1,tue1,wed1,thur1,fri1,sat1,spl1,resume2,areof12,des12;
 
     public faculty_info() {
     }
 
-    public faculty_info(String name1, String id1, String room_no1, String mon1, String tue1, String wed1, String thur1, String fri1, String sat1, String spl1, String resume2) {
+    public faculty_info(String name1, String id1, String room_no1, String mon1, String tue1, String wed1, String thur1, String fri1, String sat1, String spl1, String resume2, String areof12, String des12) {
         this.name1 = name1;
         this.id1 = id1;
         this.room_no1 = room_no1;
@@ -19,6 +19,24 @@ public class faculty_info {
         this.sat1 = sat1;
         this.spl1 = spl1;
         this.resume2 = resume2;
+        this.areof12 = areof12;
+        this.des12 = des12;
+    }
+
+    public String getAreof12() {
+        return areof12;
+    }
+
+    public void setAreof12(String areof12) {
+        this.areof12 = areof12;
+    }
+
+    public String getDes12() {
+        return des12;
+    }
+
+    public void setDes12(String des12) {
+        this.des12 = des12;
     }
 
     public String getName1() {
